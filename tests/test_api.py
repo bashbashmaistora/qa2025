@@ -1,3 +1,8 @@
+import sys
+import os
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+
+
 import requests
 from utils.config import API_ENDPOINT, HEADERS
 from utils.data_provider import get_valid_data, get_invalid_email_data
