@@ -1,0 +1,138 @@
+[
+  {
+    "description": "Successful Registration",
+    "email": "user@example.com",
+    "confirmEmail": "user@example.com",
+    "password": "Password123",
+    "expected_status": 200,
+    "expected_message": "Registration successful"
+  },
+  {
+    "description": "Duplicate Email",
+    "email": "user@example.com",
+    "confirmEmail": "user@example.com",
+    "password": "Password123",
+    "expected_status": 400,
+    "expected_message": "Validation failed"
+  },
+  {
+    "description": "Invalid Email Format",
+    "email": "user@com",
+    "confirmEmail": "user@com",
+    "password": "Password123",
+    "expected_status": 400,
+    "expected_message": "Validation failed"
+  },
+  {
+    "description": "Weak Password",
+    "email": "user@example.com",
+    "confirmEmail": "user@example.com",
+    "password": "12345",
+    "expected_status": 400,
+    "expected_message": "Validation failed"
+  },
+  {
+    "description": "Empty Email Field",
+    "email": "",
+    "confirmEmail": "",
+    "password": "Password123",
+    "expected_status": 400,
+    "expected_message": "Validation failed"
+  },
+  {
+    "description": "Empty Password Field",
+    "email": "user@example.com",
+    "confirmEmail": "user@example.com",
+    "password": "",
+    "expected_status": 400,
+    "expected_message": "Validation failed"
+  },
+  {
+    "description": "Both Fields Empty",
+    "email": "",
+    "confirmEmail": "",
+    "password": "",
+    "expected_status": 400,
+    "expected_message": "Validation failed"
+  },
+  {
+    "description": "Password Length Check",
+    "email": "user@example.com",
+    "confirmEmail": "user@example.com",
+    "password": "Pass",
+    "expected_status": 400,
+    "expected_message": "Validation failed"
+  },
+  {
+    "description": "Special Characters in Password",
+    "email": "user@example.com",
+    "confirmEmail": "user@example.com",
+    "password": "Pass@123",
+    "expected_status": 200,
+    "expected_message": "Registration successful"
+  },
+  {
+    "description": "SQL Injection Attempt",
+    "email": "' OR 1=1; --",
+    "confirmEmail": "' OR 1=1; --",
+    "password": "Password123",
+    "expected_status": 400,
+    "expected_message": "Validation failed"
+  },
+  {
+    "description": "Cross-Site Scripting (XSS) Attempt",
+    "email": "<script>alert('XSS')</script>",
+    "confirmEmail": "<script>alert('XSS')</script>",
+    "password": "Password123",
+    "expected_status": 400,
+    "expected_message": "Validation failed"
+  },
+  {
+    "description": "Password Masking",
+    "email": "user@example.com",
+    "confirmEmail": "user@example.com",
+    "password": "Password123",
+    "expected_status": 200,
+    "expected_message": "Registration successful"
+  },
+  {
+    "description": "Password Visibility Toggle",
+    "email": "user@example.com",
+    "confirmEmail": "user@example.com",
+    "password": "Password123",
+    "expected_status": 200,
+    "expected_message": "Registration successful"
+  },
+  {
+    "description": "Maximum Length of Email and Password",
+    "email": "aaaaaaaaaaaaa@example.com",
+    "confirmEmail": "aaaaaaaaaaaaa@example.com",
+    "password": "1AAAAAAAAAAAAAAAAAAA",
+    "expected_status": 200,
+    "expected_message": "Registration successful"
+  },
+  {
+    "description": "Exceeding Maximum Length",
+    "email": "aaaaaaaaaaaaa1@example.com",
+    "confirmEmail": "aaaaaaaaaaaaa1@example.com",
+    "password": "AAAAAAAAAAAAAAAAAAAAA",
+    "expected_status": 400,
+    "expected_message": "Validation failed"
+  },
+  {
+    "description": "Case Sensitivity Check",
+    "email": "user@example.com",
+    "confirmEmail": "user@example.com",
+    "password": "PASSWORD123",
+    "expected_status": 200,
+    "expected_message": "Registration successful"
+  },
+  {
+    "description": "Email Domain Check",
+    "email": "user@restricted.com",
+    "confirmEmail": "user@restricted.com",
+    "password": "Password123",
+    "expected_status": 400,
+    "expected_message": "Validation failed"
+  }
+]
